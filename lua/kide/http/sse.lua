@@ -27,7 +27,7 @@ end
 
 ---@return http.SseClient
 function SseClient:body(body)
-  self.payload = body;
+  self.payload = body
   return self
 end
 
@@ -59,7 +59,7 @@ local function _cmd(client)
     "Authorization: Bearer " .. client.token,
     "-d",
     body,
-    client.url
+    client.url,
   }
   return cmd
 end

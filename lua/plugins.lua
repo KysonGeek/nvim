@@ -425,15 +425,9 @@ return {
 
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "Avante", "codecompanion" },
-    opts = {
-      enabled = true,
-      file_types = { "markdown", "Avante", "copilot-chat", "codecompanion" },
-    },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    ft = { "markdown" },
+    opts = {},
   },
   {
     "HakonHarnes/img-clip.nvim",
