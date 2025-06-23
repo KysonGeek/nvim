@@ -33,14 +33,22 @@ map("n", "<right>", "<CMD>vertical resize-5<CR>", { desc = "Vertical Resize -5" 
 map("n", "<S-left>", "<CMD>vertical resize-5<CR>", { desc = "Vertical Resize -5" })
 map("n", "<S-right>", "<CMD>vertical resize+5<CR>", { desc = "Vertical Resize +5" })
 
-vim.keymap.set({ "t", "i" }, "<A-h>", "<C-\\><C-n><C-w>h")
-vim.keymap.set({ "t", "i" }, "<A-j>", "<C-\\><C-n><C-w>j")
-vim.keymap.set({ "t", "i" }, "<A-k>", "<C-\\><C-n><C-w>k")
-vim.keymap.set({ "t", "i" }, "<A-l>", "<C-\\><C-n><C-w>l")
-vim.keymap.set({ "n" }, "<A-h>", "<C-w>h")
-vim.keymap.set({ "n" }, "<A-j>", "<C-w>j")
-vim.keymap.set({ "n" }, "<A-k>", "<C-w>k")
-vim.keymap.set({ "n" }, "<A-l>", "<C-w>l")
+-- Move line up/down in Normal mode
+vim.keymap.set("n", "<C-S-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("n", "<C-S-j>", ":m .+1<CR>==", { desc = "Move line down" })
+
+-- Move selected lines up/down in Visual mode
+vim.keymap.set("v", "<C-S-k>", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
+vim.keymap.set("v", "<C-S-j>", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
+
+vim.keymap.set({ "t", "i" }, "<C-h>", "<C-\\><C-n><C-w>h")
+vim.keymap.set({ "t", "i" }, "<C-j>", "<C-\\><C-n><C-w>j")
+vim.keymap.set({ "t", "i" }, "<C-k>", "<C-\\><C-n><C-w>k")
+vim.keymap.set({ "t", "i" }, "<C-l>", "<C-\\><C-n><C-w>l")
+vim.keymap.set({ "n" }, "<C-h>", "<C-w>h")
+vim.keymap.set({ "n" }, "<C-j>", "<C-w>j")
+vim.keymap.set({ "n" }, "<C-k>", "<C-w>k")
+vim.keymap.set({ "n" }, "<C-l>", "<C-w>l")
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
@@ -125,10 +133,10 @@ command("TaskRunLast", function()
   require("kide.term").input_run(true)
 end, { desc = "Restart Last Task" })
 
-map("n", "<C-l>", function()
+map("n", "<C-f>", function()
   require("conform").format({ lsp_fallback = true })
 end, { desc = "format file" })
-map("v", "<C-l>", function()
+map("v", "<C-f>", function()
   vim.api.nvim_feedkeys("\027", "xt", false)
   local start_pos = vim.api.nvim_buf_get_mark(0, "<")
   local end_pos = vim.api.nvim_buf_get_mark(0, ">")
@@ -264,12 +272,15 @@ end, {
   end,
 })
 
-command("Bn", function()
-  require("nvchad.tabufline").next()
-end, { desc = "buffer goto next" })
-command("Bp", function()
-  require("nvchad.tabufline").prev()
-end, { desc = "buffer goto prev" })
+-- command("Bn", function()
+--   require("nvchad.tabufline").next()
+-- end, { desc = "buffer goto next" })
+vim.keymap.set({ "n" }, "<S-h>", ":bpre<CR>", { desc = "Pre buffer"})
+vim.keymap.set({ "n" }, "<S-l>", ":bnext<CR>", { desc = "Next buffer"})
+vim.keymap.set("n", "<leader>bo", ":%bd|e#|bd#<CR>", { desc = "Close other buffers" })
+-- command("Bp", function()
+--   require("nvchad.tabufline").prev()
+-- end, { desc = "buffer goto prev" })
 
 -- find files
 if vim.fn.executable("fd") == 1 then

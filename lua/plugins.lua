@@ -563,4 +563,32 @@ return {
       })
     end,
   },
+  {
+    "smoka7/hop.nvim",
+    version = "*",
+    lazy = false,
+    opts = {},
+    keys = {
+      -- 你自己的 hop 映射
+      { "s", function() require("hop").hint_char2() end, mode = "n", desc = "Hop to 2-char" },
+      { "S", function() require("hop").hint_lines() end, mode = "n", desc = "Hop to line start" },
+      { "<leader>hw", function() require("hop").hint_words() end, mode = "n", desc = "Hop to word" },
+      { "<leader>hv", function() require("hop").hint_vertical() end, mode = "n", desc = "Hop to any line" },
+    },
+    config = function(_, opts)
+      require("hop").setup(opts)
+    end,
+  },
+  {
+    "Eandrju/cellular-automaton.nvim",
+    cmd = { "CellularAutomaton" },
+    lazy = false,
+    config = function()
+      vim.keymap.set("n", "<leader>rr", ":CellularAutomaton make_it_rain<CR>", { desc = "Make it rain" })
+    end,
+  },
+  {
+      "mason-org/mason.nvim",
+      opts = {}
+  }
 }
