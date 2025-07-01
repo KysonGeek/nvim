@@ -590,5 +590,8 @@ return {
   {
       "mason-org/mason.nvim",
       opts = {}
+  },
+  {
+    "mg979/vim-visual-multi"
   }
 }
