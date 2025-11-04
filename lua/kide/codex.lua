@@ -80,7 +80,7 @@ function M.codex()
     end,
   }
 
-  local ok, job_or_err = pcall(vim.fn.jobstart, { "codex" }, job_opts)
+  local ok, job_or_err = pcall(vim.fn.jobstart, "codex", job_opts)
   if not ok then
     reset_state()
     vim.notify(("Codex failed to start: %s"):format(job_or_err), vim.log.levels.ERROR)
