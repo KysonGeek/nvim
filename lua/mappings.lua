@@ -327,7 +327,7 @@ map("v", "<leader>ff", function()
   vim.api.nvim_feedkeys("\027", "xt", false)
   local text = require("kide.tools").get_visual_selection()
   local param = text[1]
-  Snacks.picker.files({ args = { param } })
+  Snacks.picker.files({ search = param })
 end, { desc = "find files", silent = true, noremap = true })
 
 map("v", "<leader>fw", function()
@@ -585,6 +585,10 @@ end, {
 map({ "i", "n", "t" }, "<A-;>", function()
   require("kide.codex").codex()
 end, { desc = "Codex cmd" })
+
+map({ "n", "t" }, "<A-g>", function()
+  require("kide.gitui").gitui()
+end, { desc = "gitui" })
 
 require("kide.tools").setup()
 require("kide.tools.maven").setup()
