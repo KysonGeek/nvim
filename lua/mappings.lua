@@ -263,7 +263,7 @@ end, {
 -- end, { desc = "buffer goto next" })
 vim.keymap.set({ "n" }, "<S-h>", ":bpre<CR>", { desc = "Pre buffer"})
 vim.keymap.set({ "n" }, "<S-l>", ":bnext<CR>", { desc = "Next buffer"})
-vim.keymap.set("n", "<leader>bco", ":%bd|e#|bd#<CR>", { desc = "Close other buffers" })
+vim.keymap.set("n", "<leader>cob", ":%bd|e#|bd#<CR>", { desc = "Close other buffers" })
 -- command("Bp", function()
 --   require("nvchad.tabufline").prev()
 -- end, { desc = "buffer goto prev" })
