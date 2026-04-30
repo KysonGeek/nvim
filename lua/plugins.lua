@@ -545,6 +545,7 @@ return {
       words = { enabled = true },
       image = {
         enabled = true,
+        backend = "kitty",
       },
     },
   },

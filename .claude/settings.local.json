@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -vE \"^#|^$\" /Users/bytedance/.config/kitty/kitty.conf)",
+      "Bash(tmux -V)",
+      "Bash(kitty --version)"
+    ]
+  }
+}
