@@ -3,7 +3,15 @@
     "allow": [
       "Bash(grep -vE \"^#|^$\" /Users/bytedance/.config/kitty/kitty.conf)",
       "Bash(tmux -V)",
-      "Bash(kitty --version)"
+      "Bash(kitty --version)",
+      "Bash(nvim --headless --noplugin -u NONE -c 'luafile lua/autocmds.lua' -c 'qa')",
+      "Bash(nvim --headless -u NONE --cmd 'lua local s,e=loadfile\\('\\\\''__TRACKED_VAR__'\\\\''\\); if not s then print\\(e\\) else print\\('\\\\''ok'\\\\''\\) end' -c qa)",
+      "Bash(nvim --headless -c 'autocmd User LazyDone qa!' -c 'qa!')",
+      "Bash(timeout 60 nvim --headless +'lua vim.defer_fn\\(function\\(\\) print\\(\"STARTUP_OK\"\\) vim.cmd\\(\"qa!\"\\) end, 5000\\)')",
+      "Bash(timeout 30 nvim --headless '+lua vim.defer_fn\\(function\\(\\) *)",
+      "Bash(nvim --headless '+lua vim.defer_fn\\(function\\(\\) *)",
+      "Read(//private/tmp/**)",
+      "Bash(nvim --headless /tmp/T.java '+lua vim.defer_fn\\(function\\(\\) *)"
     ]
   }
 }

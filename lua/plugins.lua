@@ -4,7 +4,35 @@ return {
     lazy = false,
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "luadoc", "printf", "vim", "vimdoc" },
+        ensure_installed = {
+          "bash",
+          "c",
+          "css",
+          "diff",
+          "gitcommit",
+          "go",
+          "html",
+          "java",
+          "javascript",
+          "json",
+          "json5",
+          "lua",
+          "luadoc",
+          "markdown",
+          "markdown_inline",
+          "printf",
+          "python",
+          "regex",
+          "rust",
+          "toml",
+          "tsx",
+          "typescript",
+          "vim",
+          "vimdoc",
+          "xml",
+          "yaml",
+          "zig",
+        },
         highlight = {
           enable = true,
           disable = function(_, buf)
@@ -590,9 +618,11 @@ return {
   },
   {
     "mason-org/mason.nvim",
+    event = "VeryLazy",
     opts = {}
   },
   {
-    "mg979/vim-visual-multi"
+    "mg979/vim-visual-multi",
+    event = "VeryLazy",
   }
 }
